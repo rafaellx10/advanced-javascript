@@ -78,8 +78,12 @@
 		<script src="js/app/models/Negociacao.js"></script>
 		<script>
 			var n1 = new Negociacao(new Date(), 5, 700);
-			//it is allowed to change the value of n1;
-			n1._quantidade = 10;
+
+			console.log(Object.isFrozen(n1));
+			Object.freeze(n1);
+			console.log(Object.isFrozen(n1));
+			n1._quantidade = 100000;
+
 			console.log(n1.data);
 			console.log(n1.quantidade);
 			console.log(n1.valor);
