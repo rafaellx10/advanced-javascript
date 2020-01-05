@@ -8,8 +8,8 @@ class NegociacaoController {
 	adiciona(event) {
 		event.preventDefault();
 
-		console.log(this.inputData.value);
-		console.log(this.inputQuantidade.value);
-		console.log(this.inputvalor.value);
+		console.log(typeof this._inputData.value);
+
+		console.log(this._inputData.value);
 	}
 }
