@@ -31,7 +31,7 @@ class NegociacoesView {
 			</tbody>
 
 			<tfoot>
-				<td colspan="3"><td>
+				<td colspan="2"><td>
 				<td>${(function() {
 					let total = 0;
 					model.negociacoes.forEach(n => (total += n.volume));
