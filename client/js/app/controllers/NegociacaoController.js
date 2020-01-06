@@ -20,5 +20,14 @@ class NegociacaoController {
 			this._inputvalor.value
 		);
 		console.log(negociacao);
+
+		let diaMesAno =
+			negociacao.data.getDate() +
+			"/" +
+			(negociacao.data.getMonth() + 1) +
+			"/" +
+			negociacao.data.getFullYear();
+
+		console.log(diaMesAno);
 	}
 }
