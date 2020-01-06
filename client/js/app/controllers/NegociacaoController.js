@@ -8,14 +8,8 @@ class NegociacaoController {
 	}
 	adiciona(event) {
 		event.preventDefault();
-
 		this._listaNegociacoes.adiciona(this._criaNegociacao());
 		this._limpaForm();
-
-		//Vunerable to this two access below
-		this._listaNegociacoes.negociacoes.length = 0;
-		this._listaNegociacoes.negociacoes.push(this._criaNegociacao);
-		console.log(this._listaNegociacoes.negociacoes);
 	}
 
 	_criaNegociacao() {
