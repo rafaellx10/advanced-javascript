@@ -4,13 +4,14 @@ class NegociacaoController {
 		this._inputData = $("#data");
 		this._inputQuantidade = $("#quantidade");
 		this._inputvalor = $("#valor");
-		this._listaNegociacoes = new ListaNegociacoes(function(model) {
+		this._listaNegociacoes = new ListaNegociacoes(this, function(model) {
 			//'this' below is the ListaNegociacoes ans not the NegociacaoController
 			console.log(this);
 			this._negociacoesView.update(model);
 		});
 
 		this._negociacoesView = new NegociacoesView($("#negociacoesView"));
+		this._negociacoesView.update(this._listaNegociacoes);
 
 		this._mensagem = new Mensagem();
 		this._mensagemViem = new MensagemView($("#mensagemView"));
