@@ -83,17 +83,24 @@
 		</script>
 		<script>
 			let lista = new Proxy(new ListaNegociacoes(new Date(), 1, 100), {
-				set: function(target, prop, value, receiver) {
-					console.log(
-						`valor anterior: ${target[prop]}, novo valor: ${value}`
-					);
-					//return "Rafael";
-					return Reflect.set(target, prop, value, receiver);
+				//get: function(target, prop, receiver) {
+				get(target, prop, receiver) {
+					if (
+						["adiciona", "esvazia"].includes(prop) &&
+						typeof target[prop] == typeof Function
+					) {
+						return function() {
+							console.log(`interceptando ${prop}`);
+							Reflect.apply(target[prop], target, arguments);
+						};
+					}
+					return Reflect.get(target, prop, receiver);
 				}
 			});
 
 			lista.adiciona(new Negociacao(new Date(), 2, 200));
 			lista.esvazia();
+			//lista.esvazia;
 		</script>
 	</body>
 </html>
