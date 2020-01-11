@@ -82,10 +82,7 @@
 			let negociacaoController = new NegociacaoController();
 		</script>
 		<script>
-			//let negociacao = new Negociacao(new Date(), 1, 100);
-			//let negociacaoProxy = new Proxy(negociacao, {});
-
-			let negociacao = new Proxy(new Negociacao(new Date(), 1, 100), {
+			let lista = new Proxy(new ListaNegociacoes(new Date(), 1, 100), {
 				set: function(target, prop, value, receiver) {
 					console.log(
 						`valor anterior: ${target[prop]}, novo valor: ${value}`
@@ -95,8 +92,8 @@
 				}
 			});
 
-			negociacao._quantidade = 10;
-			negociacao._valor = 200;
+			lista.adiciona(new Negociacao(new Date(), 2, 200));
+			lista.esvazia();
 		</script>
 	</body>
 </html>
