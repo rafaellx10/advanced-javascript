@@ -45,4 +45,80 @@ class NegociacaoService {
 		/* Executar */
 		xhr.send();
 	}
+
+	obterNegociacoesDaSemanaAnterior(cb) {
+		console.log("Importando negociacoes");
+		let xhr = new XMLHttpRequest();
+
+		xhr.open("GET", "negociacoes/anterior");
+
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					console.log("obtendo as negociações do servidor");
+					console.log(JSON.parse(xhr.responseText));
+					cb(
+						null,
+						JSON.parse(xhr.responseText).map(
+							objeto =>
+								new Negociacao(
+									new Date(objeto.data),
+									objeto.quantidade,
+									objeto.valor
+								)
+						)
+					);
+				} else {
+					console.log(xhr.responseText);
+					console.log(
+						"Não foi possível obter as negociações do servidor"
+					);
+					cb(
+						"Não foi possível obter as negociações do servidor",
+						null
+					);
+				}
+			}
+		};
+
+		xhr.send();
+	}
+
+	obterNegociacoesDaSemanaRetrasada(cb) {
+		console.log("Importando negociacoes");
+		let xhr = new XMLHttpRequest();
+
+		xhr.open("GET", "negociacoes/retrasada");
+
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					console.log("obtendo as negociações do servidor");
+					console.log(JSON.parse(xhr.responseText));
+					cb(
+						null,
+						JSON.parse(xhr.responseText).map(
+							objeto =>
+								new Negociacao(
+									new Date(objeto.data),
+									objeto.quantidade,
+									objeto.valor
+								)
+						)
+					);
+				} else {
+					console.log(xhr.responseText);
+					console.log(
+						"Não foi possível obter as negociações do servidor"
+					);
+					cb(
+						"Não foi possível obter as negociações do servidor",
+						null
+					);
+				}
+			}
+		};
+
+		xhr.send();
+	}
 }
