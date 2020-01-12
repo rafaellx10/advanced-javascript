@@ -23,7 +23,6 @@ class NegociacaoController {
 		this._listaNegociacoes.adiciona(this._criaNegociacao());
 
 		this._mensagem.texto = "Negociação adicionada com sucesso";
-		// this._mensagemViem.update(this._mensagem);
 
 		this._limpaForm();
 	}
@@ -43,7 +42,6 @@ class NegociacaoController {
 				this._listaNegociacoes.adiciona(negociacao);
 			});
 			this._mensagem.texto = "Negociações importadas com sucesso";
-			// this._mensagemViem.update(this._mensagem);
 		});
 	}
 
@@ -51,7 +49,6 @@ class NegociacaoController {
 		this._listaNegociacoes.esvazia();
 
 		this._mensagem.texto = "Negociacoes apagada com sucesso";
-		// this._mensagemViem.update(this._mensagem);
 	}
 
 	_criaNegociacao() {
