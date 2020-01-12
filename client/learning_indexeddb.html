@@ -8,15 +8,20 @@
 	</head>
 	<body>
 		<script>
+			var connection;
 			console.log(window.indexedDB);
-			var openRequest = window.indexedDB.open("aluraframe", 1);
+			var openRequest = window.indexedDB.open("aluraframe", 2);
 
 			openRequest.onupgradeneeded = e => {
 				console.log("Cria ou altera um banco já existente");
+				var myConnection = e.target.result;
+				myConnection.createObjectStore("negociacoes");
 			};
 
 			openRequest.onsuccess = e => {
 				console.log("Conexão obtida com sucesso");
+
+				connection = e.target.result;
 			};
 
 			openRequest.onerror = e => {
