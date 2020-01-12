@@ -32,12 +32,9 @@ class NegociacaoService {
 				} else {
 					console.log(xhr.responseText);
 					console.log(
-						"Não foi possível obter as negociações do servidor"
+						"Não foi possível obter as negociações da semana"
 					);
-					cb(
-						"Não foi possível obter as negociações do servidor",
-						null
-					);
+					cb("Não foi possível obter as negociações da semana", null);
 				}
 			}
 		};
@@ -71,10 +68,10 @@ class NegociacaoService {
 				} else {
 					console.log(xhr.responseText);
 					console.log(
-						"Não foi possível obter as negociações do servidor"
+						"Não foi possível obter as negociações da semana anterior"
 					);
 					cb(
-						"Não foi possível obter as negociações do servidor",
+						"Não foi possível obter as negociações da semana anterior",
 						null
 					);
 				}
@@ -109,10 +106,10 @@ class NegociacaoService {
 				} else {
 					console.log(xhr.responseText);
 					console.log(
-						"Não foi possível obter as negociações do servidor"
+						"Não foi possível obter as negociações da semana retrasada"
 					);
 					cb(
-						"Não foi possível obter as negociações do servidor",
+						"Não foi possível obter as negociações da semana retrasada",
 						null
 					);
 				}
