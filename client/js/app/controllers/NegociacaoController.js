@@ -38,38 +38,37 @@ class NegociacaoController {
 			}
 
 			console.log(negociacoes);
-			negociacoes.forEach(negociacao => {
-				this._listaNegociacoes.adiciona(negociacao);
+			negociacoes.forEach(negociacao =>
+				this._listaNegociacoes.adiciona(negociacao)
+			);
+			service.obterNegociacoesDaSemanaAnterior((err, negociacoes) => {
+				if (err) {
+					console.log(err);
+					this._mensagem.texto = err;
+					return;
+				}
+
+				console.log(negociacoes);
+				negociacoes.forEach(negociacao =>
+					this._listaNegociacoes.adiciona(negociacao)
+				);
+				service.obterNegociacoesDaSemanaRetrasada(
+					(err, negociacoes) => {
+						if (err) {
+							console.log(err);
+							this._mensagem.texto = err;
+							return;
+						}
+
+						console.log(negociacoes);
+						negociacoes.forEach(negociacao =>
+							this._listaNegociacoes.adiciona(negociacao)
+						);
+						this._mensagem.texto =
+							"Negociações importadas com sucesso";
+					}
+				);
 			});
-			this._mensagem.texto = "Negociações importadas com sucesso";
-		});
-
-		service.obterNegociacoesDaSemanaAnterior((err, negociacoes) => {
-			if (err) {
-				console.log(err);
-				this._mensagem.texto = err;
-				return;
-			}
-
-			console.log(negociacoes);
-			negociacoes.forEach(negociacao => {
-				this._listaNegociacoes.adiciona(negociacao);
-			});
-			this._mensagem.texto = "Negociações importadas com sucesso";
-		});
-
-		service.obterNegociacoesDaSemanaRetrasada((err, negociacoes) => {
-			if (err) {
-				console.log(err);
-				this._mensagem.texto = err;
-				return;
-			}
-
-			console.log(negociacoes);
-			negociacoes.forEach(negociacao => {
-				this._listaNegociacoes.adiciona(negociacao);
-			});
-			this._mensagem.texto = "Negociações importadas com sucesso";
 		});
 	}
 
