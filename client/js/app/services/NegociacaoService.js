@@ -18,8 +18,8 @@ class NegociacaoService {
 			xhr.onreadystatechange = () => {
 				if (xhr.readyState == 4) {
 					if (xhr.status == 200) {
-						console.log("obtendo as negociações do servidor");
-						console.log(JSON.parse(xhr.responseText));
+						// console.log("obtendo as negociações do servidor");
+						// console.log(JSON.parse(xhr.responseText));
 						resolve(
 							JSON.parse(xhr.responseText).map(
 								objeto =>
@@ -58,8 +58,8 @@ class NegociacaoService {
 			xhr.onreadystatechange = () => {
 				if (xhr.readyState == 4) {
 					if (xhr.status == 200) {
-						console.log("obtendo as negociações do servidor");
-						console.log(JSON.parse(xhr.responseText));
+						// console.log("obtendo as negociações do servidor");
+						// console.log(JSON.parse(xhr.responseText));
 						resolve(
 							JSON.parse(xhr.responseText).map(
 								objeto =>
@@ -97,8 +97,8 @@ class NegociacaoService {
 			xhr.onreadystatechange = () => {
 				if (xhr.readyState == 4) {
 					if (xhr.status == 200) {
-						console.log("obtendo as negociações do servidor");
-						console.log(JSON.parse(xhr.responseText));
+						// console.log("obtendo as negociações do servidor");
+						// console.log(JSON.parse(xhr.responseText));
 						resolve(
 							JSON.parse(xhr.responseText).map(
 								objeto =>
