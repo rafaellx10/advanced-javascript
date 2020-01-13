@@ -1,4 +1,4 @@
-function tmp() {
+var ConnectionFactory = (function() {
 	var stores = ["negociacoer"];
 	var version = 5;
 	var dbName = "aluraframe";
@@ -43,6 +43,4 @@ function tmp() {
 			});
 		}
 	};
-}
-
-var ConnectionFactory = tmp();
+})();
