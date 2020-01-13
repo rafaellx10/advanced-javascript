@@ -94,6 +94,10 @@
 			console.log(window.indexedDB);
 			console.log(indexedDB);
 			ConnectionFactory.getConnection().then(conn => console.log(conn));
+			// lines below should not be allowed
+			ConnectionFactory.getConnection().then(conn =>
+				console.log(conn.close())
+			);
 		</script>
 	</body>
 </html>
