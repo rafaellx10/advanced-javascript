@@ -25,7 +25,11 @@ class NegociacaoController {
 				negociacoes.forEach(negociacao =>
 					this._listaNegociacoes.adiciona(negociacao)
 				)
-			);
+			)
+			.catch(erro => {
+				console.log(err);
+				this._mensagem.texto = err;
+			});
 	}
 	adiciona(event) {
 		event.preventDefault();
