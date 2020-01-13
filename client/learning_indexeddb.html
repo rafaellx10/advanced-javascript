@@ -92,6 +92,22 @@
 					console.log(e.target.error.name);
 				};
 			}
+
+			ConnectionFactory.getConnection().then(connection => {
+				//use connection
+				connection.close(); //it can not happen
+			});
+
+			ConnectionFactory.getConnection().then(connection => {
+				//Connection needs to be the same used before
+			});
+
+			/*
+			a) getConnection will be a static method.
+			b) getConnection will return a promisse.
+			c) It doesn't matter how often I call the static method, connection have to be the same.
+			d) Programmer can't call close directly. It can only be closed by itself (ConnectionFactory).
+			*/
 		</script>
 	</body>
 </html>
