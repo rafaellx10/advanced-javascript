@@ -2,6 +2,8 @@ var stores = ["negociacoer"];
 var version = 5;
 var dbName = "aluraframe";
 
+var connection = null;
+
 class ConnectionFactory {
 	constructor() {
 		throw new Error(
@@ -18,7 +20,10 @@ class ConnectionFactory {
 			};
 
 			openRequest.onsuccess = e => {
-				resolve(e.target.result);
+				if (!connection) {
+					connection = e.target.result;
+				}
+				resolve(connection);
 			};
 
 			openRequest.onerror = e => {
