@@ -85,6 +85,7 @@
 		<script src="js/app/services/NegociacaoService.js"></script>
 		<script src="js/app/helpers/Bind.js"></script>
 		<script src="js/app/services/HttpService.js"></script>
+		<script src="js/app/services/ConnectionFactory.js"></script>
 
 		<script>
 			let negociacaoController = new NegociacaoController();
@@ -92,6 +93,7 @@
 		<script>
 			console.log(window.indexedDB);
 			console.log(indexedDB);
+			ConnectionFactory.getConnection().then(conn => console.log(conn));
 		</script>
 	</body>
 </html>
