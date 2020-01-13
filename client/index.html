@@ -86,6 +86,7 @@
 		<script src="js/app/helpers/Bind.js"></script>
 		<script src="js/app/services/HttpService.js"></script>
 		<script src="js/app/services/ConnectionFactory.js"></script>
+		<script src="js/app/dao/NegociacaoDao.js"></script>
 
 		<script>
 			let negociacaoController = new NegociacaoController();
@@ -93,11 +94,8 @@
 		<script>
 			console.log(window.indexedDB);
 			console.log(indexedDB);
-			ConnectionFactory.getConnection().then(conn => console.log(conn));
-			// lines below should not be allowed
-			ConnectionFactory.getConnection().then(conn =>
-				console.log(conn.close())
-			);
+			//ConnectionFactory.getConnection().then(conn => console.log(conn));
+			//ConnectionFactory.getConnection().then(conn => new NegociacaoDao(conn).adiciona(new Negociacao(new Date(), 7, 321)));
 		</script>
 	</body>
 </html>

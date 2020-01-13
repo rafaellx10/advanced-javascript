@@ -108,6 +108,16 @@
 			c) It doesn't matter how often I call the static method, connection have to be the same.
 			d) Programmer can't call close directly. It can only be closed by itself (ConnectionFactory).
 			*/
+
+			/*
+			ConnectionFactory.getConnection().then(connection => {
+				let dao = new NegociacaoDao(connection);
+				let negociacao = new Negociacao(new Date(), 1, 100);
+				dao.adiciona(negociacao).then(() => {
+					// do something
+				});
+			});
+			*/
 		</script>
 	</body>
 </html>
