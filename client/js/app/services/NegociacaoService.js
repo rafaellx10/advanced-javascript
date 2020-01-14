@@ -77,4 +77,25 @@ class NegociacaoService {
 				});
 		});
 	}
+
+	obterNegociacoes() {
+		return Promise.all([
+			this.obterNegociacoesDaSemana(),
+			this.obterNegociacoesDaSemanaAnterior(),
+			this.obterNegociacoesDaSemanaRetrasada()
+		])
+			.then(periodos => {
+				let negociacoes = periodos
+					.reduce((dados, periodo) => dados.concat(periodo), [])
+					.map(dados => {
+						console.log(dados);
+						return dados;
+					});
+				return negociacoes;
+			})
+			.catch(err => {
+				console.log(err);
+				throw new Error(err);
+			});
+	}
 }
