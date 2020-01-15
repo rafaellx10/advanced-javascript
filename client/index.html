@@ -92,10 +92,21 @@
 			let negociacaoController = new NegociacaoController();
 		</script>
 		<script>
-			console.log(window.indexedDB);
-			console.log(indexedDB);
-			//ConnectionFactory.getConnection().then(conn => console.log(conn));
-			//ConnectionFactory.getConnection().then(conn => new NegociacaoDao(conn).adiciona(new Negociacao(new Date(), 7, 321)));
+			var hoje = new Date();
+			var n1 = new Negociacao(hoje, 1, 100);
+			var n2 = new Negociacao(hoje, 1, 100);
+			n1 == n2;
+			//false
+			n1.data == n1.data;
+			//false
+			n1.data.getDate() == n2.data.getDate();
+			//true
+			n1.data.getDate() == n2.data.getDate() &&
+				n1.quantidade == n2.quantidade &&
+				n1.valor == n2.valor;
+			//true
+			JSON.stringify(n1) == JSON.stringify(n2);
+			//true
 		</script>
 	</body>
 </html>
