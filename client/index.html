@@ -92,21 +92,9 @@
 			let negociacaoController = new NegociacaoController();
 		</script>
 		<script>
-			var hoje = new Date();
-			var n1 = new Negociacao(hoje, 1, 100);
-			var n2 = new Negociacao(hoje, 1, 100);
-			n1 == n2;
-			//false
-			n1.data == n1.data;
-			//false
-			n1.data.getDate() == n2.data.getDate();
-			//true
-			n1.data.getDate() == n2.data.getDate() &&
-				n1.quantidade == n2.quantidade &&
-				n1.valor == n2.valor;
-			//true
-			JSON.stringify(n1) == JSON.stringify(n2);
-			//true
+			var letras = ["a", "b", "c", "d"];
+			letras.some(letra => console.log(letra));
+			letras.some(letra => letra == "b");
 		</script>
 	</body>
 </html>

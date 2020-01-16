@@ -54,9 +54,11 @@ class NegociacaoController {
 			.then(negociacoes =>
 				negociacoes.filter(
 					negociacao =>
-						this._listaNegociacoes.negociacoes.indexOf(
-							negociacao
-						) == -1
+						!this._listaNegociacoes.negociacoes.some(
+							negociacaoExistete =>
+								JSON.stringify(negociacao) ==
+								JSON.stringify(negociacaoExistete)
+						)
 				)
 			)
 			.then(negociacoes =>
