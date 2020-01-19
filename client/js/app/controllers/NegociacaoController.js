@@ -56,17 +56,7 @@ class NegociacaoController {
 		let service = new NegociacaoService();
 
 		service
-			.obterNegociacoes()
-			.then(negociacoes =>
-				negociacoes.filter(
-					negociacao =>
-						!this._listaNegociacoes.negociacoes.some(
-							negociacaoExistete =>
-								JSON.stringify(negociacao) ==
-								JSON.stringify(negociacaoExistete)
-						)
-				)
-			)
+			.importa(this._listaNegociacoes.negociacoes)
 			.then(negociacoes =>
 				negociacoes.forEach(negociacao => {
 					this._listaNegociacoes.adiciona(negociacao);
