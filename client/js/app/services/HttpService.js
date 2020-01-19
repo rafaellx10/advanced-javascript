@@ -1,26 +1,14 @@
 class HttpService {
+	_handleErrors(response) {
+		if (!response.ok) throw new Error(response.statusText);
+		return response;
+	}
+
 	get(url) {
-		return new Promise((resolve, reject) => {
-			let xhr = new XMLHttpRequest();
-
-			xhr.open("GET", url);
-
-			xhr.onreadystatechange = () => {
-				if (xhr.readyState == 4) {
-					if (xhr.status == 200) {
-						// console.log("obtendo as negociações do servidor");
-						// console.log(JSON.parse(xhr.responseText));
-						resolve(JSON.parse(xhr.responseText));
-					} else {
-						console.log(xhr.responseText);
-						console.log("Não foi possível obter as negociações");
-						reject(xhr.responseText);
-					}
-				}
-			};
-
-			xhr.send();
-		});
+		// url = "testing";
+		return fetch(url)
+			.then(response => this._handleErrors(response))
+			.then(response => response.json());
 	}
 	post(url, dado) {
 		return new Promise((resolve, reject) => {
