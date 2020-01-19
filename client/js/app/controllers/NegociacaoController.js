@@ -30,6 +30,10 @@ class NegociacaoController {
 				console.log(err);
 				this._mensagem.texto = err;
 			});
+
+		setInterval(() => {
+			this.importarNegociacoes();
+		}, 5000);
 	}
 	adiciona(event) {
 		event.preventDefault();
