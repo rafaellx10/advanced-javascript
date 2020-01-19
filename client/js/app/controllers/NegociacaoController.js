@@ -20,6 +20,12 @@ class NegociacaoController {
 			"texto"
 		);
 
+		this._ordemAtual = "";
+
+		this._init();
+	}
+
+	_init() {
 		ConnectionFactory.getConnection()
 			.then(connection => new NegociacaoDao(connection))
 			.then(dao => dao.listaTodos())
@@ -32,8 +38,6 @@ class NegociacaoController {
 				console.log(err);
 				this._mensagem.texto = err;
 			});
-
-		this._ordemAtual = "";
 
 		setInterval(() => {
 			this.importarNegociacoes();
