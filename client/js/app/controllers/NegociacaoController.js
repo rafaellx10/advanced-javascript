@@ -9,7 +9,9 @@ class NegociacaoController {
 			new ListaNegociacoes(),
 			new NegociacoesView($("#negociacoesView")),
 			"adiciona",
-			"esvazia"
+			"esvazia",
+			"ordena",
+			"inverteOrdem"
 		);
 
 		this._mensagem = new Bind(
@@ -30,6 +32,8 @@ class NegociacaoController {
 				console.log(err);
 				this._mensagem.texto = err;
 			});
+
+		this._ordemAtual = "";
 
 		setInterval(() => {
 			this.importarNegociacoes();
@@ -100,5 +104,12 @@ class NegociacaoController {
 		this._inputvalor.value = 0.0;
 
 		this._inputData.focus();
+	}
+
+	ordena(coluna) {
+		if (this._ordemAtual == coluna) this._listaNegociacoes.inverteOrdem();
+		else this._listaNegociacoes.ordena((p, s) => p[coluna] - s[coluna]);
+
+		this._ordemAtual = coluna;
 	}
 }
