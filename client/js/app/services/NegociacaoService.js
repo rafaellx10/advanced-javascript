@@ -88,7 +88,7 @@ class NegociacaoService {
 				let negociacoes = periodos
 					.reduce((dados, periodo) => dados.concat(periodo), [])
 					.map(dados => {
-						console.log(dados);
+						// console.log(dados);
 						return dados;
 					});
 				return negociacoes;
@@ -96,6 +96,16 @@ class NegociacaoService {
 			.catch(err => {
 				console.log(err);
 				throw new Error(err);
+			});
+	}
+
+	cadastra(negociacao) {
+		return ConnectionFactory.getConnection()
+			.then(connection => new NegociacaoDao(connection))
+			.then(dao => dao.adiciona(negociacao))
+			.then(() => "Negociação adicionada com sucesso")
+			.catch(() => {
+				throw new Error("Não foi possível adicionar a negociação");
 			});
 	}
 }
