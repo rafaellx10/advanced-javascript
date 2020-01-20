@@ -8,4 +8,4 @@ document.querySelector(".form").onsubmit = negociacaoController.adiciona.bind(
 );
 document.querySelector(
 	"[type=button]"
-).onclick = negociacaoController.adiciona.bind(negociacaoController);
+).onclick = negociacaoController.apaga.bind(negociacaoController);
